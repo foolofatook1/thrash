@@ -20,11 +20,17 @@ to access and page size
 equal to page size.
 
 while (time(NULL) - start_time < SECONDS)
+
 {
- Create a random page number.
- Access the random buffer (page), changing at least one byte
-if MODIFY is > 0
+
+	Create a random page number.
+
+	Access the random buffer (page), changing at least one byte
+
+	if MODIFY is > 0
+
 }
+
 *free all memory*
 
 Before exiting program should print out the number of frames accessed per
