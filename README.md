@@ -2,7 +2,9 @@
 thrash MEGABYTES SECONDS MODIFY
 
 **MEGABYTES:**	amount of mem to allocate.
+
 **SECONDS:**	time spent on mem access, *excluding initial allocation*.
+
 **MODIFY:**		1 if mem is to be modified as it is accessed.
 
 Should add memory in frame-sized units.
