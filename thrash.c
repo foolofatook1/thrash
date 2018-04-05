@@ -90,17 +90,23 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	pages_to_access = (MEGABYTES*1048576)/PAGESIZE;
+	pages_to_access = (MEGABYTES*1000000)/PAGESIZE;
 	pages = malloc(sizeof(char *)*pages_to_access);
+	if(pages == NULL)
+	{
+		fprintf(stderr, "Fail: you tried to allocate %lli pages.\n",
+		pages_to_access);
+		return -1;
+	}
 
 	/* Each element of array is equal to PAGESIZE. */
 	for(i = 0; i < pages_to_access; ++i)
 	{
 		pages[i] = malloc(PAGESIZE);
 		/* Check to see if all was malloc'ed. */
-		if(pages[i] == NULL)
+		if(pages[i] == NULL)//NULL)
 		{
-			printf("malloc was unsuccessful.\n");
+			fprintf(stderr, "A malloc was unsuccessful.\n");
 			return -1;
 		}
 	}

@@ -1,0 +1,33 @@
+2. Determine the amount of memory and swap size and device name on your 
+computer. 
+
+/proc/swaps:
+Filename	Type		Size		Used	Priority
+/dev/sda4	partition	3999740		0		-1
+_____________________________________________________________
+
+free -m:
+total	used	free	shared	buff/cache	available
+Mem:	7904	1381	4356    	58		2166		6124
+Swap:	3905	   0	3905		
+_____________________________________________________________
+
+PAGESIZE: 4096 **in bytes**
+
+5. If your program allocates 200 MB and you run your program twice for five
+seconds, does it cause the same number of page faults? Explain. What is the
+maximum memory that you can allocate in a single run of thrash without an
+allocation error? Explain your findings.
+
+No it does not. The page faults are typically relatively close to about the
+same amount (off by about one or two less the second time it's run). 
+This is likely because parts of the process that were needed the previous 
+time it was run are now cached and therefore don't cause a page fault the 
+second time it is run. I get allocation errors kind of randomly between 
+5000000 MB and 5700000 MB. I'm a little confused as to why this is so high.i
+I suspect it's because it's way beyond the limits of my partition, which is
+3999740 MB.
+
+7. Values recorded free -m values recorded above. =^.^=
+
+8 & 9 & 10. Attached Graphs.
